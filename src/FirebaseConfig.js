@@ -2,7 +2,7 @@ import {
   collection,
   query,
   onSnapshot,
-  getFirestore,
+  getFirestore
 } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 
@@ -20,7 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export const getTodos = async (callBack) => {
+export const getTodos = (callBack) => {
   const consulta = query(collection(db, "Lunes"));
-  await onSnapshot(consulta, callBack);
+  onSnapshot(consulta, callBack);
 };

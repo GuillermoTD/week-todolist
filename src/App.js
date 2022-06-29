@@ -6,18 +6,22 @@ export default function App() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    const fetchTodos = async (querySnapshot) => {
-      await querySnapshot.forEach((doc) => {
-        setTodos([...todos, doc.data()]);
-      });
+    const fetchTodos = (querySnapshot) => {
+      const result = querySnapshot.docs.map((doc) => doc.data());
+      setTodos(result);
+      console.log(todos);
     };
     getTodos(fetchTodos);
-    console.log(todos);
   }, []);
   return (
     <div className="App ">
       <h1>Hello CodeSandbox</h1>
       <h2>Start editing to see some magic happen!</h2>
+      <div>
+        {todos.map((doc, index) => {
+          return <li key={index}>{doc.Nombre}</li>;
+        })}
+      </div>
     </div>
   );
 }
