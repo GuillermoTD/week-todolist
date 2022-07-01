@@ -1,4 +1,179 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+:root {
+  --green: #4edca0;
+  --blue: #179de4;
+  --black: #0d1316;
+  --white: #fff;
+}
+li {
+  list-style: none;
+}
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .App {
-  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 70rem;
+  height: 100vh;
+}
+
+.Menu-Container {
+  width: 17rem;
+  height: 95vh;
+  transition: 0.4s ease-in-out;
+  display: flex;
+  /* align-items:center; */
+  flex-direction: column;
+  gap: 0.8rem;
+  background: var(--black);
+  color: #a8a8af;
+  padding-left: 0.4rem;
+}
+
+.Menu-Container .Menu-Hamburguer {
+  border: lightblue 2px solid;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.17rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.Menu-Container .Menu-Hamburguer span {
+  background: #000000;
+  width: 1.5rem;
+  height: 3.5px;
+  border-radius: 2rem;
+}
+
+.Menu-Container .Menu-Days {
+  /* display: flex;
+  flex-direction: column;
+  align-items:center; */
+}
+.Menu-Container .Menu-Days li {
+  font-size: 1.5rem;
+}
+.Menu-Container .Menu-Days span {
+  font-size: 1.1rem;
+}
+
+.Main-Container {
+  width: 100%;
+  border: 2px solid #0007;
+  height: 95vh;
+  transition: 0.4s ease-in;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+}
+.Main-Container .Main-Header {
+  height: 4rem;
+  width: 100%;
+  background: var(--color2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-right: 2rem;
+  color: white;
+}
+
+.Main-Container .Main-Date-Box {
+  width: 20rem;
+  padding: 0.5rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.Main-Container .Main-Date-Box button {
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.Main-Container .Main-AddTask {
+  border: #0004 1px solid;
+  background: var(--blue);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2rem;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.Main-Container .Main-TasksList {
+  /* width: 50%; */
+  display: flex;
+  max-width: 40rem;
+  width: 35rem;
+  margin-top: 2rem;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid green; */
+  border-top: 1px solid #0001;
+  display: flex;
+  align-items: center;
+}
+
+.Main-Container .Main-TasksList .Main-TasksList-Item {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-top: 1px solid #0001;
+  border-bottom: 1px solid #0001;
+}
+
+.Main-Container .Main-TasksList .Main-TasksList-Item .Main-TasksList-Box1 {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.Main-Container .Main-TasksList .Main-TasksList-Item .Main-TasksList-Box2 {
+  display: flex;
+  gap: 1rem;
+}
+.Main-Container
+  .Main-TasksList
+  .Main-TasksList-Item
+  .Main-TasksList-Box2
+  button {
+  font-size: 1.12rem;
+  color: #000000e5;
 }
