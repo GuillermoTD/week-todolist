@@ -9,25 +9,32 @@ const Menu = () => {
         </div>
         <div className="Menu-Days">
           <li>
-            L<span>unes</span>
+            <span>L</span>
+            Lunes
           </li>
           <li>
-            M<span>artes</span>
+            <span>M</span>
+            Martes
           </li>
           <li>
-            M<span>iercoles</span>
+            <span>M</span>
+            Miercoles
           </li>
           <li>
-            J<span>ueves</span>
+            <span>J</span>
+            Jueves
           </li>
           <li>
-            V<span>iernes</span>
+            <span>V</span>
+            Viernes
           </li>
           <li>
-            S<span>abado</span>
+            <span>S</span>
+            Sabado
           </li>
           <li>
-            D<span>omingo</span>
+            <span>D</span>
+            Domingo
           </li>
         </div>
 

@@ -1,4 +1,21 @@
-const Lunes = ({ todos }) => {
+import { useEffect, useState } from "react";
+import { getTodos } from "../../FirebaseConfig";
+import AddModal from "../AddModal";
+import { useNavigate } from "react-router-dom";
+const Domingo = () => {
+  const [todos, setTodos] = useState([]);
+  const history = useNavigate();
+
+  useEffect(() => {
+    const fetchTodos = (querySnapshot) => {
+      const result = querySnapshot.docs.map((doc) => doc.data());
+      setTodos(result);
+      console.log(todos);
+      console.log(Array.isArray(querySnapshot.docs));
+    };
+    getTodos(fetchTodos, "Domingo");
+  }, []);
+
   return (
     <>
       <div className="Main-Container">
@@ -6,22 +23,21 @@ const Lunes = ({ todos }) => {
           <div className="Main-Header-UserName">Guillermo</div>
           <div className="Main-Header-UserIcon">userImage</div>
         </div>
-
         <div className="Main-Date-Box">
-          <button>
-            <i class="fas fa-angle-left"></i>
+          <button onClick={() => history("../sabado")}>
+            <i className="fas fa-angle-left"></i>
           </button>
           <div className="Main-Heading">
-            <h2>Lunes</h2>
+            <h2>Domingo</h2>
             <p>30 Julio 2022</p>
           </div>
-          <button>
-            <i class="fas fa-angle-right"></i>
+          <button onClick={() => history("/")}>
+            <i className="fas fa-angle-right"></i>
           </button>
         </div>
 
         <button className="Main-AddTask">
-          <i class="fas fa-plus"></i>
+          <i className="fas fa-plus"></i>
         </button>
 
         <div className="Main-TasksList">
@@ -29,15 +45,15 @@ const Lunes = ({ todos }) => {
             <div key={index} className="Main-TasksList-Item">
               <div className="Main-TasksList-Box1">
                 <input type="checkbox" />
-                <p>{todo.Nombre}</p>
+                <p>{todo.Titulo}</p>
               </div>
 
               <div className="Main-TasksList-Box2">
                 <button>
-                  <i class="fas fa-eye"></i>
+                  <i className="fas fa-eye"></i>
                 </button>
                 <button>
-                  <i class="fas fa-ellipsis-h"></i>
+                  <i className="fas fa-ellipsis-h"></i>
                 </button>
               </div>
             </div>
@@ -48,4 +64,4 @@ const Lunes = ({ todos }) => {
   );
 };
 
-export default Lunes;
+export default Domingo;

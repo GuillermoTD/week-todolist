@@ -2,7 +2,10 @@ import {
   collection,
   query,
   onSnapshot,
-  getFirestore
+  getFirestore,
+  setDoc,
+  doc,
+  addDoc
 } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 
@@ -20,7 +23,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export const getTodos = (callBack) => {
-  const consulta = query(collection(db, "Lunes"));
+export const getTodos = (callBack, dia) => {
+  let diaConsulta;
+
+  if (dia) {
+    diaConsulta = dia;
+  } else {
+    diaConsulta = "Lunes";
+  }
+  console.log("hola" + dia);
+  const consulta = query(collection(db, diaConsulta));
   onSnapshot(consulta, callBack);
+};
+
+export const IncludeTask = async (task, day) => {
+  // console.log(task);
+  // console.log("este es el dia" + day);
+  const collref = collection(db, day);
+  addDoc(collref, task);
+  // await setDoc(doc(db, "Lunes", "task001"), task);
 };
